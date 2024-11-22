@@ -38,13 +38,13 @@ RUN docker --version
 RUN git clone https://github.com/WackyDawg/automatic-winner.git /app
 
 # Change the working directory to the cloned repository
-WORKDIR /app/automatic-winner
+WORKDIR /app
 
 # List the contents of the /app/automatic-winner directory to confirm the files are there
 RUN ls -alh
 
 # Run docker-compose to start services defined in the docker-compose.yml file
-RUN /usr/local/bin/docker-compose up -d
+RUN docker build -t ubuntu-docker-compose .
 
 # Set the default command to run when starting the container
 CMD ["bash"]
