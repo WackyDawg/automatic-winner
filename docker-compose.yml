@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  ubuntu1:
+    image: ubuntu:latest
+    container_name: ubuntu_container_1
+    command: bash -c "while true; do sleep 1000; done"
+    networks:
+      - ubuntu_network
+
+  ubuntu2:
+    image: ubuntu:latest
+    container_name: ubuntu_container_2
+    command: bash -c "while true; do sleep 1000; done"
+    networks:
+      - ubuntu_network
+
+  ubuntu3:
+    image: ubuntu:latest
+    container_name: ubuntu_container_3
+    command: bash -c "while true; do sleep 1000; done"
+    networks:
+      - ubuntu_network
+
+networks:
+  ubuntu_network:
+    driver: bridge
