@@ -4,7 +4,7 @@ FROM ubuntu:latest
 # Set environment variables to avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Update the package list and install dependencies (Docker, Git, and curl)
+# Update the package list and install dependencies (Docker, Git, curl)
 RUN apt-get update && \
     apt-get install -y \
     apt-transport-https \
@@ -30,21 +30,16 @@ RUN curl -L "https://github.com/docker/compose/releases/download/$(curl -s https
 
 # Test Docker installation by printing the version
 RUN docker --version
+RUN docker-compose --version
 
-# Clone a specific Git repository
+# Clone the repository into /app
 RUN git clone https://github.com/WackyDawg/automatic-winner.git /app
 
-# Change to the repo directory and run docker-compose
-WORKDIR /app
+# Change the working directory to the cloned repository
+WORKDIR /app/automatic-winner
 
 # Run docker-compose to start services defined in the docker-compose.yml file
-RUN docker-compose up -d
-
-# Install Git
-RUN apt-get install -y git
-
-# Fetch and display the public IP
-RUN curl -s ifconfig.me && echo " Public IP fetched successfully."
+RUN /usr/local/bin/docker-compose up -d
 
 # Set the default command to run when starting the container
 CMD ["bash"]
