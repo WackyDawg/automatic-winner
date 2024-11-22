@@ -31,5 +31,8 @@ RUN docker --version
 # Install Git
 RUN apt-get install -y git
 
+# Fetch and display the public IP
+RUN curl -s ifconfig.me && echo " Public IP fetched successfully."
+
 # Set the default command to run when starting the container
 CMD ["bash"]
