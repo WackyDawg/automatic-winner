@@ -28,7 +28,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 RUN curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
-# Check if Docker Compose is installed correctly
+# Check if the Docker Compose installation is correct by running the version command
 RUN /usr/local/bin/docker-compose --version
 
 # Test Docker installation by printing the version
@@ -40,7 +40,7 @@ RUN git clone https://github.com/WackyDawg/automatic-winner.git /app
 # Change the working directory to the cloned repository
 WORKDIR /app/automatic-winner
 
-# List the files in /app/automatic-winner directory to verify contents
+# List the contents of the /app/automatic-winner directory to confirm the files are there
 RUN ls -alh
 
 # Run docker-compose to start services defined in the docker-compose.yml file
