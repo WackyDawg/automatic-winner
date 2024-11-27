@@ -92,51 +92,9 @@ async function ExtractCRX() {
                 args: [
                     '--no-sandbox',
                     '--disable-setuid-sandbox',
-                    '--ignore-certificate-errors',
-                    '--ignore-certificate-errors-spki-list',
-                    "--disable-gpu",
-                    "--disable-infobars",
-                    "--window-position=0,0",
-                    "--ignore-certifcate-errors",
-                    "--ignore-certifcate-errors-spki-list",
-                    "--disable-speech-api",
-                    //"--disable-background-networking", // Disable several subsystems which run network requests in the background. This is for use 									  // when doing network performance testing to avoid noise in the measurements. ↪
-                    //"--disable-background-timer-throttling", // Disable task throttling of timer tasks from background pages. ↪
-                    "--disable-backgrounding-occluded-windows",
-                    "--disable-breakpad",
-                    "--disable-client-side-phishing-detection",
-                    "--disable-component-update",
-                    "--disable-default-apps",
-                    "--disable-dev-shm-usage",
-                    "--disable-domain-reliability",
-                    "--disable-extensions",
-                    "--disable-features=AudioServiceOutOfProcess",
-                    "--disable-hang-monitor",
-                    "--disable-ipc-flooding-protection",
-                    "--disable-notifications",
-                    "--disable-offer-store-unmasked-wallet-cards",
-                    "--disable-popup-blocking",
-                    "--disable-print-preview",
-                    "--disable-prompt-on-repost",
-                    "--disable-renderer-backgrounding",
-                    "--disable-setuid-sandbox",
-                    "--disable-sync",
-                    "--hide-scrollbars",
-                    "--ignore-gpu-blacklist",
-                    "--metrics-recording-only",
-                    "--mute-audio",
-                    "--no-default-browser-check",
-                    "--no-first-run",
-                    "--no-pings",
-                    "--no-sandbox",
-                    "--no-zygote",
-                    "--password-store=basic",
-                    "--use-gl=swiftshader",
-                    "--use-mock-keychain",
-                    "--incognito",
                     `--disable-extensions-except=${extensionPath}`,
                     `--load-extension=${extensionPath}`,
-                    '--proxy-server=http://198.23.239.134:6540'
+                    // '--proxy-server=http://198.23.239.134:6540'
                 ],
                 defaultViewport: null,
                 ignoreHTTPSErrors: true,
@@ -144,11 +102,11 @@ async function ExtractCRX() {
 
             const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-            const page = await browser.newPage();
-              await page.authenticate({
-              username: 'reaybwmc',
-              password: 'cyj0mtk3f5tc'
-              });
+            // const page = await browser.newPage();
+            //   await page.authenticate({
+            //   username: 'reaybwmc',
+            //   password: 'cyj0mtk3f5tc'
+            //   });
             await page.setUserAgent(randomUserAgent);
             console.log(`Browser ${i + 1} launched with user agent: ${randomUserAgent}`);
 
