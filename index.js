@@ -102,7 +102,7 @@ async function ExtractCRX() {
 
             const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-            // const page = await browser.newPage();
+             const page = await browser.newPage();
             //   await page.authenticate({
             //   username: 'reaybwmc',
             //   password: 'cyj0mtk3f5tc'
